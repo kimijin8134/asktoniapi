@@ -35,7 +35,11 @@ public class RecommendationRepository : IRecommendationRepository
 
     public async Task AddRecommendation(Recommendation item)
     {
-        await _context.Recommendations.InsertOneAsync(item);
+        try {
+            await _context.Recommendations.InsertOneAsync(item);
+        } catch (Exception ex) {
+            throw ex;
+        }
     }
 
     public async Task<DeleteResult> RemoveRecommendation(string id)
@@ -50,10 +54,5 @@ public class RecommendationRepository : IRecommendationRepository
                              .ReplaceOneAsync(n => n.Id.Equals(id)
                                                  , item
                                                  , new UpdateOptions { IsUpsert = true });
-    }
-
-    public async Task<DeleteResult> RemoveAllRecommendations()
-    {
-        return await _context.Recommendations.DeleteManyAsync(new BsonDocument());
     }
 }

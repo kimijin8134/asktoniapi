@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using AskToniApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
+using MongoDB.Bson.Serialization;
 
 namespace asktoniapi
 {

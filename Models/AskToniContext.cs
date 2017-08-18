@@ -15,7 +15,10 @@ namespace AskToniApi.Models
         {
             try {
                 _client = new MongoClient("mongodb://admin:Vv33T$Rt@ds034677.mlab.com:34677/asktonidb");
-                _db = _client.GetDatabase("asktonidb"); 
+                if (_client != null) {
+                    _db = _client.GetDatabase("asktonidb"); 
+                }
+                
             } catch (Exception ex) {
                 throw ex;
             }  

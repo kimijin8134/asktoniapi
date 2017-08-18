@@ -43,8 +43,8 @@ namespace AskToniApi.Controllers
         [HttpPost]
         public void Post([FromBody]Recommendation value)
         {
-            _recommendationRepository.AddRecommendation(new Recommendation() 
-                                    { RestaurantName = value.RestaurantName, 
+            _recommendationRepository.AddRecommendation(new Recommendation() { 
+                                    RestaurantName = value.RestaurantName, 
                                     Website = value.Website, 
                                     Address = value.Address });
         }
